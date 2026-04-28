@@ -1,10 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Config from "@/lib/config";
 
 import "@/style/home.css";
 
-const SITE_URL = "https://toolsxm.com";
-const SITE_NAME = "Toolsxm";
 
 type Tool = {
   slug: string;
@@ -42,12 +41,12 @@ const FAQ = [
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: SITE_NAME,
+  name: Config.SITE_NAME,
   alternateName: "Toolsxm — Free Online Generator Tools",
-  url: SITE_URL,
+  url: Config.MAIN_DOMAIN_NO,
   potentialAction: {
     "@type": "SearchAction",
-    target: `${SITE_URL}/search?q={search_term_string}`,
+    target: `${Config.MAIN_DOMAIN_NO}/search?q={search_term_string}`,
     "query-input": "required name=search_term_string",
   },
 };
@@ -61,7 +60,7 @@ const itemListJsonLd = {
     position: i + 1,
     name: t.name,
     description: t.desc,
-    url: `${SITE_URL}/tools/${t.slug}`,
+    url: `${Config.MAIN_DOMAIN_NO}/tools/${t.slug}`,
   })),
 };
 const faqJsonLd = {
@@ -77,8 +76,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",  item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "Tools", item: `${SITE_URL}/#tools` },
+    { "@type": "ListItem", position: 1, name: "Home",  item: Config.MAIN_DOMAIN_NO },
+    { "@type": "ListItem", position: 2, name: "Tools", item: `${Config.MAIN_DOMAIN_NO}/#tools` },
   ],
 };
 
