@@ -29,26 +29,6 @@ const TOOLS: Tool[] = [
 
 const CATEGORIES = ["All", "Developer", "Design", "Security", "SEO", "Content", "Utility"];
 
-const FAQ = [
-  { q: "Are all tools on Toolsxm completely free?",  a: "Yes. Every generator on Toolsxm is 100% free, with no signup, no rate limits, and no hidden upsells." },
-  { q: "Is my data sent to a server?",               a: "No. All generation runs locally in your browser using JavaScript and the Web Crypto API. Your input never leaves your device." },
-  { q: "Can I use Toolsxm tools commercially?",      a: "Absolutely. Output from our generators (passwords, palettes, QR codes, fake data) is yours to use in any commercial project." },
-  { q: "Do you offer an API?",                       a: "Most tools are designed for the browser, but a public API for selected generators is on the roadmap." },
-];
-
-// JSON-LD — залишається тут, бо це page-specific structured data
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: Config.SITE_NAME,
-  alternateName: "Toolsxm — Free Online Generator Tools",
-  url: Config.MAIN_DOMAIN_NO,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${Config.MAIN_DOMAIN_NO}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
-};
 const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -62,72 +42,34 @@ const itemListJsonLd = {
     url: `${Config.MAIN_DOMAIN_NO}/tools/${t.slug}`,
   })),
 };
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home",  item: Config.MAIN_DOMAIN_NO },
-    { "@type": "ListItem", position: 2, name: "Tools", item: `${Config.MAIN_DOMAIN_NO}/#tools` },
+    { "@type": "ListItem", position: 2, name: "Tools", item: `${Config.MAIN_DOMAIN_NO}/tools` },
   ],
 };
 
 export const metadata: Metadata = {
-  title: "Free Online Generator Tools — Build, Create, Generate Anything",
+  title: "All Free Online Generator Tools — Toolsxm",
   description:
-    "Toolsxm is a free collection of fast, browser-based generator tools: password generator, QR code generator, UUID generator, color palette generator, fake data generator, hash generator, lorem ipsum, meta tag generator, and more. No signup, no ads, no tracking.",
-  alternates: { canonical: "/" },
+    "Browse all free browser-based generator tools on Toolsxm: password generator, QR code generator, UUID generator, color palette generator, fake data generator, hash generator, lorem ipsum, meta tag generator, and more. No signup, no ads.",
+  alternates: { canonical: "/tools" },
 };
 
-export default function Home() {
+export default function ToolsPage() {
   return (
     <>
-      {/* Page-specific JSON-LD */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
-      {/* HERO */}
-      <section className="hero" aria-labelledby="hero-h1">
-        <div className="hero-meta">
-          <span className="dot dot-live" /> 12 generators · all free · no signup
-        </div>
-        <h1 id="hero-h1" className="hero-h1">
-          Free online <em>generator</em> tools
-          <br />
-          for everything you build.
-        </h1>
-        <p className="hero-sub">
-          Passwords, QR codes, UUIDs, color palettes, fake data, hashes — fast, private, and
-          beautifully simple. Runs entirely in your browser.
-        </p>
-        <div className="hero-cta">
-          <a href="#tools" className="btn btn-primary">Browse all tools →</a>
-          <a href="#why"   className="btn btn-ghost">Why Toolsxm</a>
-        </div>
-        <ul className="hero-stats" aria-label="Site statistics">
-          <li><strong>12</strong><span>generators</span></li>
-          <li><strong>0ms</strong><span>server latency</span></li>
-          <li><strong>100%</strong><span>browser-side</span></li>
-          <li><strong>$0</strong><span>forever</span></li>
-        </ul>
-      </section>
-
-      {/* TOOLS */}
-      <section id="tools" className="tools" aria-labelledby="tools-h2">
+      <section id="tools" className="tools" aria-labelledby="tools-h1">
         <div className="section-head">
           <div>
-            <span className="eyebrow">/ 01 — Catalog</span>
-            <h2 id="tools-h2" className="section-h2">All generator tools</h2>
+            <span className="eyebrow">/ Catalog</span>
+            <h1 id="tools-h1" className="section-h2">All generator tools</h1>
             <p className="section-lede">
               Every tool below is free, runs in your browser, and works offline once loaded. Pick a
               category or jump straight to the generator you need.
@@ -150,7 +92,7 @@ export default function Home() {
                   <span className="tool-icon" aria-hidden="true">{t.icon}</span>
                   <span className="tool-cat">{t.cat}</span>
                 </div>
-                <h3 id={`t-${t.slug}`} className="tool-name">{t.name}</h3>
+                <h2 id={`t-${t.slug}`} className="tool-name">{t.name}</h2>
                 <p className="tool-desc">{t.desc}</p>
                 <span className="tool-arrow" aria-hidden="true">Open <span>→</span></span>
               </Link>
@@ -178,57 +120,6 @@ export default function Home() {
             . If you have a generator you'd like to see next, the list is community-driven.
           </p>
         </div>
-      </section>
-
-      {/* WHY */}
-      <section id="why" className="why" aria-labelledby="why-h2">
-        <span className="eyebrow">/ 02 — Principles</span>
-        <h2 id="why-h2" className="section-h2">Built different. On purpose.</h2>
-        <div className="why-grid">
-          <article className="why-card">
-            <span className="why-num">01</span>
-            <h3>Local-first</h3>
-            <p>Everything runs in your browser. Your inputs never touch our servers.</p>
-          </article>
-          <article className="why-card">
-            <span className="why-num">02</span>
-            <h3>Zero clutter</h3>
-            <p>No ads, no popups, no cookie banners begging for consent you didn't owe.</p>
-          </article>
-          <article className="why-card">
-            <span className="why-num">03</span>
-            <h3>Sub-100ms</h3>
-            <p>Every page is statically generated and lighter than a single tweet.</p>
-          </article>
-          <article className="why-card">
-            <span className="why-num">04</span>
-            <h3>Open by default</h3>
-            <p>Source code is on GitHub. Every algorithm is auditable end-to-end.</p>
-          </article>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="faq" aria-labelledby="faq-h2">
-        <span className="eyebrow">/ 03 — FAQ</span>
-        <h2 id="faq-h2" className="section-h2">Questions people ask</h2>
-        <div className="faq-list">
-          {FAQ.map((f, i) => (
-            <details key={i} className="faq-item">
-              <summary>
-                <span className="faq-q">{f.q}</span>
-                <span className="faq-toggle" aria-hidden="true">+</span>
-              </summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta">
-        <h2>Pick a tool. Get an answer. Move on with your day.</h2>
-        <a href="#tools" className="btn btn-primary btn-lg">Open the catalog →</a>
       </section>
     </>
   );

@@ -1,7 +1,7 @@
 export const dynamic = "force-static";
 
 import type { Metadata } from "next";
-import Contact from "./Contact";
+import TermsOfService from "./TermsOfService";
 import Config from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -52,6 +52,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
-  return <Contact />;
+export default function TermsOfServicePage() {
+  return <TermsOfService />;
 }
