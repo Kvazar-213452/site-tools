@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────── THEMES ─────────── */
+:root,
+:root[data-theme="light"] {
+  --bg: #fafaf7;
+  --bg-2: #f3f3ee;
+  --surface: #ffffff;
+  --surface-2: #f7f7f2;
+  --line: #e6e4dc;
+  --line-2: #d4d2c8;
+  --ink: #15140f;
+  --ink-2: #525049;
+  --ink-3: #8a877c;
+  --accent: #ff5e3a;
+  --accent-ink: #ffffff;
+  --selection-bg: #15140f;
+  --selection-fg: #ffe25a;
+  --grid-line: rgba(0, 0, 0, 0.05);
+  --noise-blend: multiply;
+  --noise-opacity: 0.03;
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-pop: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg-2: #111111;
+  --surface: #161616;
+  --surface-2: #1d1d1d;
+  --line: #262626;
+  --line-2: #333333;
+  --ink: #f5f5f0;
+  --ink-2: #b8b8b0;
+  --ink-3: #6b6b66;
+  --accent: #d4ff4f;
+  --accent-ink: #0a0a0a;
+  --selection-bg: #d4ff4f;
+  --selection-fg: #0a0a0a;
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --noise-blend: overlay;
+  --noise-opacity: 0.06;
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-pop: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme="paper"] {
+  --bg: #f5f1e8;
+  --bg-2: #ede8d9;
+  --surface: #fbf7ee;
+  --surface-2: #f0ebdb;
+  --line: #d9d1bc;
+  --line-2: #c4baa0;
+  --ink: #2a2418;
+  --ink-2: #5a513e;
+  --ink-3: #8a7e63;
+  --accent: #b94a1f;
+  --accent-ink: #fbf7ee;
+  --selection-bg: #2a2418;
+  --selection-fg: #f7d977;
+  --grid-line: rgba(60, 50, 30, 0.06);
+  --noise-blend: multiply;
+  --noise-opacity: 0.06;
+  --shadow-soft: 0 1px 3px rgba(60, 50, 30, 0.06);
+  --shadow-pop: 0 8px 32px rgba(60, 50, 30, 0.12);
+}
+
+:root[data-theme="ocean"] {
+  --bg: #0c1a26;
+  --bg-2: #0f2030;
+  --surface: #142838;
+  --surface-2: #1a3245;
+  --line: #1f3d54;
+  --line-2: #2c5474;
+  --ink: #e8f2fa;
+  --ink-2: #9ab5c8;
+  --ink-3: #5a7a90;
+  --accent: #5ee0c5;
+  --accent-ink: #0c1a26;
+  --selection-bg: #5ee0c5;
+  --selection-fg: #0c1a26;
+  --grid-line: rgba(94, 224, 197, 0.06);
+  --noise-blend: overlay;
+  --noise-opacity: 0.05;
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-pop: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+:root {
+  --serif: "Fraunces", "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --nav-h: 64px;
+  --pad-x: clamp(16px, 4vw, 40px);
+  --max-w: 1320px;
+}
+
+/* ─────────── RESET ─────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--selection-bg); color: var(--selection-fg); }
+::-moz-selection { background: var(--selection-bg); color: var(--selection-fg); }
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+em { font-style: italic; color: var(--accent); }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; }
+
+/* ─────────── ACCESSIBILITY ─────────── */
+.skip-link {
+  position: absolute; left: -9999px;
+  background: var(--accent); color: var(--accent-ink);
+  padding: 8px 14px; z-index: 1000;
+}
+.skip-link:focus { left: 16px; top: 16px; }
+
+/* ─────────── BACKGROUND ─────────── */
+.grid-bg {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at top, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at top, #000 0%, transparent 70%);
+}
+.noise {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: var(--noise-opacity);
+  mix-blend-mode: var(--noise-blend);
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/></svg>");
+}
+
+main, .footer { position: relative; z-index: 1; }
+
+/* ─────────── RESPONSIVE (загальні) ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

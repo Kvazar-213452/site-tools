@@ -1,0 +1,242 @@
+/* ═══════════════════════════════════════
+   HEADER — повністю переписано
+   Логіка: mobile-first
+   - < 768px: логотип + [theme btn] + [burger]
+   - ≥ 768px: логотип + nav links + [theme btn]
+   burger і mobile-menu існують в DOM завжди,
+   видимість керується виключно через медіа-запити
+   ═══════════════════════════════════════ */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── Внутрішній контейнер ── */
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo зліва, actions справа */
+}
+
+/* ── Логотип ── */
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.logo-mark { color: var(--accent); font-size: 0.85em; }
+.logo-dot  { color: var(--accent); }
+
+/* ── Десктопне меню — за замовчуванням СХОВАНЕ (mobile-first) ── */
+.nav-links {
+  display: none;
+}
+
+/* ── Права група: theme + burger (завжди видима) ── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Theme picker ── */
+.theme-wrap { position: relative; }
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s;
+}
+.theme-btn:hover { border-color: var(--accent); }
+.theme-name { font-weight: 500; }
+.chev { font-size: 9px; opacity: 0.5; }
+
+.theme-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+}
+.theme-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 170px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: var(--shadow-pop);
+  z-index: 11;
+  animation: menuIn 0.12s ease-out;
+}
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.theme-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 11px;
+  font-size: 13px;
+  font-family: var(--mono);
+  border-radius: 6px;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.theme-opt:hover     { background: var(--surface-2); }
+.theme-opt.is-active { background: var(--surface-2); }
+.theme-opt .check    { margin-left: auto; color: var(--accent); font-size: 12px; }
+
+/* ── Burger — за замовчуванням ВИДИМИЙ (mobile-first) ── */
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+.burger:hover { border-color: var(--accent); }
+.burger span {
+  display: block;
+  width: 15px;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+.burger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Mobile menu — за замовчуванням СХОВАНИЙ через visibility+opacity ── */
+/* НЕ використовуємо display:none щоб анімація працювала */
+.mobile-menu {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  padding: 20px var(--pad-x);
+  gap: 0;
+  z-index: 99;
+  overflow-y: auto;
+  /* Прихований стан */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.mobile-menu a {
+  display: block;
+  padding: 16px 0;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--accent); }
+.mobile-menu a:first-child { border-top: 1px solid var(--line); }
+
+/* ══ ДЕСКТОП ≥ 768px ══
+   Показуємо nav-links, ховаємо burger
+   ════════════════════════════════════ */
+@media (min-width: 768px) {
+  .nav-inner {
+    gap: 0; /* використовуємо flex-grow на nav-links */
+  }
+
+  /* Показуємо десктопне меню */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--ink-2);
+    font-family: var(--mono);
+    /* Розтягуємо між логотипом і actions */
+    flex: 1;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  .nav-links a {
+    padding: 8px 4px;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* Ховаємо burger */
+  .burger { display: none !important; }
+
+  /* Ховаємо mobile menu — навіть якщо .is-open з'явилось */
+  .mobile-menu,
+  .mobile-menu.is-open {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Показуємо theme-name */
+  .theme-name { display: inline; }
+}
+
+/* ─────────── RESPONSIVE (header) ─────────── */
+@media (max-width: 768px) {
+  .theme-name { display: none; }
+  .theme-btn { padding: 0 10px; gap: 4px; }
+}
