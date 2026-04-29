@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -80,17 +79,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/*
-          FOUC prevention: inline script виконується синхронно до першого paint,
-          одразу застосовуючи збережену тему до <html> без будь-якого мерехтіння.
-        */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('toolsxm-theme');if(t&&['light','dark','paper','ocean'].indexOf(t)!==-1)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
           }}
         />
 
-        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
@@ -109,7 +103,6 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   );
