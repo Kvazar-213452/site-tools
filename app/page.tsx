@@ -5,54 +5,55 @@ import Home from "./Home";
 import Config from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "JSON Converter Toolkit – Free Online Data Format Converters",
-  description: "15+ free converters: JSON to YAML, CSV, XML, Prisma, TypeScript, PostgreSQL. Base64, URL encode, UUID, Markdown, case converter. 100% client-side, private, no sign-up.",
+  title: `${Config.SITE_NAME} — Free Online Generator Tools for Everything You Build`,
+  description: `12+ free browser-based generators: password, QR code, UUID, color palette, fake data, hash, lorem ipsum, meta tag, CSS gradient, username, JSON, favicon. No signup, no ads, no tracking — 100% client-side and private.`,
   keywords: [
-    "JSON converter",
-    "YAML converter",
-    "CSV converter",
-    "XML converter",
-    "Prisma schema generator",
-    "TypeScript interface generator",
-    "PostgreSQL converter",
-    "Base64 encoder",
-    "URL encoder",
-    "UUID converter",
-    "Markdown to HTML",
-    "case converter",
-    "data format converter",
-    "online converter",
-    "free converter",
-    "client-side converter",
-    "private converter",
+    "online generator tools",
+    "free generator tools",
+    "password generator",
+    "QR code generator",
+    "UUID generator",
+    "color palette generator",
+    "fake data generator",
+    "hash generator",
+    "lorem ipsum generator",
+    "meta tag generator",
+    "CSS gradient generator",
+    "username generator",
+    "JSON generator",
+    "favicon generator",
+    "browser-based tools",
+    "client-side tools",
+    "no signup tools",
     "developer tools",
-    "data transformation"
+    "design tools",
+    "SEO tools",
   ],
   authors: [{ name: `${Config.NAME_MAKE}` }],
   robots: { index: true, follow: true },
+  alternates: { canonical: `${Config.MAIN_DOMEN}` },
   openGraph: {
-    title: "JSON Converter Toolkit – Free Data Format Converters",
-    description: "15+ free converters for developers. Transform JSON, YAML, CSV, XML, Prisma, TypeScript, SQL. 100% client-side processing. No uploads, no sign-up, completely private.",
+    title: `${Config.SITE_NAME} — Free Online Generator Tools`,
+    description: `12+ fast, browser-based generators for developers, designers, and creators. Passwords, QR codes, UUIDs, palettes, fake data, hashes — all free, all private, all instant.`,
     url: `${Config.MAIN_DOMEN}`,
     type: "website",
+    siteName: Config.SITE_NAME,
     images: [
       {
         url: `${Config.MAIN_DOMEN}/icon.png`,
         width: 1200,
         height: 630,
-        alt: "JSON Converter Toolkit"
-      }
+        alt: `${Config.SITE_NAME} — Free Online Generator Tools`,
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSON Converter Toolkit – Free Data Format Converters",
-    description: "15+ free converters: JSON↔YAML, CSV, XML, Prisma, TypeScript, PostgreSQL, Base64, URL, UUID, Markdown. Client-side only. No uploads, private, instant."
+    title: `${Config.SITE_NAME} — Free Online Generator Tools`,
+    description: `12+ free browser-based generators: passwords, QR codes, UUIDs, palettes, fake data, hashes, and more. No signup, no ads, no tracking.`,
   },
 };
 
-export default function HomePagePage() {
-  return (
-    <Home />
-  );
+export default function HomePage() {
+  return <Home />;
 }

@@ -3,8 +3,6 @@ import Config from "@/lib/config";
 
 import "@/style/home.css";
 
-// ─── JSON-LD ──────────────────────────────────────────────────────────────
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -28,8 +26,6 @@ const webPageJsonLd = {
   dateModified: "2025-04-01",
 };
 
-// ─── Metadata ─────────────────────────────────────────────────────────────
-
 export const metadata: Metadata = {
   title: `Terms of Service — ${Config.SITE_NAME}`,
   description: `Read the ${Config.SITE_NAME} Terms of Service. Learn how you may use our free browser-based tools, what we disclaim, and how to contact us with questions.`,
@@ -43,8 +39,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
-// ─── Sections ─────────────────────────────────────────────────────────────
 
 const SECTIONS = [
   {
@@ -115,8 +109,6 @@ const FAQ = [
   { q: "Can these terms change?",                        a: "Yes. We may update the Terms of Service at any time. Continued use of the Service after a change means you accept the updated terms." },
   { q: "Who do I contact with legal questions?",         a: `Reach us at ${Config.GMAIL}. We respond within 1–2 business days.` },
 ];
-
-// ─── Page ─────────────────────────────────────────────────────────────────
 
 export default function TermsOfServicePage() {
   return (

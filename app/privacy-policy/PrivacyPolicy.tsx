@@ -3,8 +3,6 @@ import Config from "@/lib/config";
 
 import "@/style/home.css";
 
-// ─── JSON-LD ──────────────────────────────────────────────────────────────
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -28,8 +26,6 @@ const webPageJsonLd = {
   dateModified: "2025-04-01",
 };
 
-// ─── Metadata ─────────────────────────────────────────────────────────────
-
 export const metadata: Metadata = {
   title: `Privacy Policy — ${Config.SITE_NAME}`,
   description: `${Config.SITE_NAME} does not collect, store, or sell your personal data. All tools run locally in your browser. Read our full privacy policy.`,
@@ -43,8 +39,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
-// ─── Sections ─────────────────────────────────────────────────────────────
 
 const SECTIONS = [
   {
@@ -111,8 +105,6 @@ const FAQ = [
   { q: "What happens to passwords I generate?",     a: "They are generated entirely in your browser and never leave your device. We never see them." },
   { q: "Who do I contact about a privacy concern?", a: `Email us at ${Config.GMAIL}. We take privacy concerns seriously and respond within 1–2 business days.` },
 ];
-
-// ─── Page ─────────────────────────────────────────────────────────────────
 
 export default function PrivacyPolicyPage() {
   return (

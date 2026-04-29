@@ -7,14 +7,12 @@ import Config from "@/lib/config";
 import "@/style/home.css";
 import "@/style/tools.css";
 
-// ─── Utils ────────────────────────────────────────────────────────────────
 function randomInt(min: number, max: number): number {
   const lo = Math.min(min, max);
   const hi = Math.max(min, max);
   return Math.floor(Math.random() * (hi - lo + 1)) + lo;
 }
 
-// ─── Constants ────────────────────────────────────────────────────────────
 const TOOL_URL  = `${Config.MAIN_DOMAIN_NO}/random-number-generator`;
 const TOOL_NAME = "Random Number Generator";
 
@@ -271,8 +269,6 @@ function RandomGeneratorSection() {
     </section>
   );
 }
-
-// ─── Page ─────────────────────────────────────────────────────────────────
 
 export default function RandomNumberGeneratorPage() {
   return (

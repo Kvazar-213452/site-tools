@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { THEMES, useTheme } from "@/providers/ThemeProvider";
+import { THEMES, useTheme } from "@/components/ThemeProvider";
 
 export function Header() {
   const { theme, setTheme, currentTheme } = useTheme();
@@ -10,13 +10,11 @@ export function Header() {
   const [menuOpen, setMenuOpen]   = useState(false);
   const themeRef = useRef<HTMLDivElement>(null);
 
-  // Блокуємо scroll при відкритому мобайл-меню
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  // Закриваємо theme-dropdown кліком поза ним
   useEffect(() => {
     if (!themeOpen) return;
     const handler = (e: MouseEvent) => {

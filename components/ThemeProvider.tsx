@@ -38,13 +38,10 @@ export function useTheme(): ThemeContextValue {
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeId>("light");
 
-  // Читаємо збережену тему після гідрації
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) as ThemeId | null;
     if (saved && VALID_THEMES.includes(saved)) {
       setThemeState(saved);
-      // setAttribute вже виконано inline-скриптом у layout, але
-      // на всяк випадок синхронізуємо ще раз після гідрації
       document.documentElement.setAttribute("data-theme", saved);
     }
   }, []);

@@ -3,8 +3,6 @@ import Config from "@/lib/config";
 
 import "@/style/home.css";
 
-// ─── JSON-LD ──────────────────────────────────────────────────────────────
-
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -54,8 +52,6 @@ const faqJsonLd = {
   ],
 };
 
-// ─── Metadata ─────────────────────────────────────────────────────────────
-
 export const metadata: Metadata = {
   title: `Contact Us — ${Config.SITE_NAME}`,
   description:
@@ -74,8 +70,6 @@ export const metadata: Metadata = {
     description: `Reach the ${Config.SITE_NAME} team for bug reports, tool requests, or general questions.`,
   },
 };
-
-// ─── Page ─────────────────────────────────────────────────────────────────
 
 export default function ContactPage() {
   return (
