@@ -55,4 +55,5 @@ export const metadata: Metadata = {
 
 export default function ToolsPage() {
   return <Tools />;
+  return <Tools />;
 }
