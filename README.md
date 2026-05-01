@@ -1,116 +1,85 @@
-# 🚀 Converter Tools — Next.js Project
+# Free Online Tools & Generators
 
-A modern web application built with Next.js that provides a collection of useful online tools for developers and everyday users. The platform focuses on fast, simple, and privacy-friendly data conversion directly in the browser.
-
----
-
-## 🌐 Features
-
-* ⚡ Fast and responsive UI
-* 🔐 No data storage — all conversions happen client-side
-* 🧰 Multiple developer tools in one place
-* 📱 Mobile-friendly design
-* 🔎 SEO optimized
+A collection of free, fast, browser-based tools for developers, designers, students, and content creators. No signup, no ads, no data sent to servers.
 
 ---
 
-## 🛠 Available Tools
+## 🧰 Tools
 
-### 🔄 JSON Converters
+### Text & Code
+| Tool | Path |
+|------|------|
+| Case Converter | `/tools/case-converter` |
+| Word Counter | `/tools/word-counter` |
+| JSON Formatter | `/tools/json-formatter` |
+| URL Encoder | `/tools/url-encoder` |
+| URL Decoder | `/tools/url-decode` |
 
-* JSON → YAML
-* JSON → CSV
-* JSON → XML
-* JSON → Prisma
-* JSON → PostgreSQL
-* JSON → Prisma Schema
-* JSON → TypeScript Interface
+### Generators
+| Tool | Path |
+|------|------|
+| Password Generator | `/tools/generator/password-generator` |
+| UUID Generator | `/tools/generator/uuid-generator` |
+| Hash Generator (SHA-256, SHA-512…) | `/tools/generator/hash-generator` |
+| Lorem Ipsum Generator | `/tools/generator/lorem-ipsum-generator` |
+| Random Number Generator | `/tools/generator/random-number-generator` |
+| Random Country Generator | `/tools/generator/random-country-generator` |
+| Random Fact Generator | `/tools/generator/random-fact-generator` |
+| Random Question Generator | `/tools/generator/random-question-generator` |
+| Startup Idea Generator | `/tools/generator/startup-idea-generator` |
 
-### ✍️ Text Tools
+### Name Generators
+| Tool | Path |
+|------|------|
+| Nickname Generator | `/tools/generator/name/nickname-generator` |
+| Business Name Generator | `/tools/generator/name/business-name-generator` |
+| Cool Usernames for Gamers | `/tools/generator/name/cool-usernames-for-gamers` |
+| Funny Usernames for TikTok | `/tools/generator/name/funny-usernames-for-tiktok` |
+| Aesthetic Minecraft Names | `/tools/generator/name/aesthetic-minecraft-names` |
+| Cool Minecraft Names | `/tools/generator/name/cool-minecraft-names` |
+| Minecraft Names for Boys | `/tools/generator/name/minecraft-names-for-boys` |
+| Minecraft Clan Names | `/tools/generator/name/minecraft-clan-names` |
 
-* Word Counter
-* Remove Duplicate Lines
-* Case Converter
-* Markdown → HTML
-
-### 🔐 Encoding & Utilities
-
-* UUID → Base64
-* String → Base64
-* URL Encode / Decode
-* Date → Unix Timestamp
-
-### 📄 Other Pages
-
-* Contacts
-* Privacy Policy
-* Terms of Service
+### Blog
+| Article | Path |
+|---------|------|
+| AI Tools for Students | `/blog/ai-tools-for-students` |
+| AI Tools for TikTok | `/blog/ai-tools-for-tiktok` |
+| AI Tools for YouTube | `/blog/ai-tools-for-youtube` |
+| How to Write YouTube Titles | `/blog/how-to-write-youtube-titles` |
+| Social Media Tools Free | `/blog/social-media-tools-free` |
 
 ---
 
-## ⚙️ Tech Stack
+## ⚡ Key Features
 
-* Next.js
-* React
-* JavaScript / TypeScript
-* CSS / Tailwind (optional)
+- **100% browser-based** — all tools run client-side, no data leaves your device
+- **No signup required** — open and use instantly
+- **No ads** — clean, distraction-free interface
+- **SEO optimized** — static generation, JSON-LD structured data, canonical URLs
+- **Fully responsive** — works on mobile, tablet, and desktop
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
-
-```bash
-https://github.com/Kvazar-213452/conv-site
-cd converter-tools
-```
-
-### 2. Install dependencies
-
 ```bash
 npm install
-```
-
-### 3. Run development server
-
-```bash
 npm run dev
 ```
 
-App will be available at:
-
-```
-http://localhost:3000
-```
-
----
-
-## 📦 Build for production
+Open [http://localhost:3000](http://localhost:3000)
 
 ```bash
+# Production build
 npm run build
-npm start
+npm run start
 ```
 
 ---
 
-## 🤝 Contributing
+## 📄 Legal
 
-Pull requests are welcome!
-If you have ideas for new tools — feel free to open an issue.
-
----
-
-## 📄 License
-
-MIT License
-
----
-
-## 💡 Future Improvements
-
-* Add more converters
-* API support
-* Dark mode
-* Save/share results
+- [Terms of Service](/terms-of-service)
+- [Privacy Policy](/privacy-policy)
+- [Contacts](/contacts)
