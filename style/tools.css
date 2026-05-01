@@ -431,3 +431,352 @@
     text-align: center;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* MISSING STYLES — Generator Components                             */
+/* ═════════════════════════════════════════════════════════════════ */
+
+/* ─── Generator Controls Layout ─────────────────────────────────── */
+.generator-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.generator-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.generator-field-wide {
+  flex: 1 1 260px;
+}
+
+/* ─── Slider ─────────────────────────────────────────────────────── */
+.generator-slider {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 4px;
+}
+
+.generator-slider-marks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.generator-slider-marks span {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.generator-slider-marks span:hover {
+  color: var(--accent);
+}
+
+/* ─── Number input with stepper ──────────────────────────────────── */
+.generator-number-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.generator-step-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.generator-step-btn:hover {
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  color: var(--accent);
+}
+
+.generator-number-input {
+  width: 64px;
+  text-align: center;
+  border: none !important;
+  border-left: 1px solid var(--line-2) !important;
+  border-right: 1px solid var(--line-2) !important;
+  border-radius: 0 !important;
+  background: var(--bg) !important;
+  box-shadow: none !important;
+  padding: 0.55rem 0.25rem !important;
+}
+
+/* ─── Checkboxes ─────────────────────────────────────────────────── */
+.generator-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.generator-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--ink-2);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+.generator-checkbox-label:hover {
+  color: var(--ink);
+}
+
+.generator-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ─── Password output ────────────────────────────────────────────── */
+.converter-output-full {
+  width: 100%;
+}
+
+.pwd-output-row {
+  cursor: default;
+}
+
+.output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.output-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.output-meta {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--ink-3);
+}
+
+.output-pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+.output-pre-sm {
+  font-size: 13px;
+}
+
+.output-code-block {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+.pwd-code {
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+/* ─── Password char highlight ────────────────────────────────────── */
+.pwd-upper  { color: var(--accent); }
+.pwd-lower  { color: var(--ink); }
+.pwd-digit  { color: color-mix(in srgb, var(--accent) 60%, var(--ink)); }
+.pwd-symbol { color: color-mix(in srgb, var(--accent) 80%, #ff6b6b); }
+
+/* ─── Strength bar ───────────────────────────────────────────────── */
+.pwd-strength-bar-wrap {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.pwd-strength-bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.pwd-strength-label {
+  font-size: 12px;
+  font-family: var(--mono);
+  margin-bottom: 4px;
+  transition: color 0.3s;
+}
+
+/* ─── Copy All button ────────────────────────────────────────────── */
+.converter-copy-btn {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-family: var(--mono);
+  font-weight: 600;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.converter-copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+
+.converter-copy-all-btn {
+  align-self: flex-start;
+  padding: 8px 20px;
+  font-size: 13px;
+}
+
+/* ─── Tabs (Lorem Ipsum unit/mode switcher) ──────────────────────── */
+.converter-tabs {
+  display: flex;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.converter-tab {
+  flex: 1;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-family: var(--mono);
+  font-weight: 600;
+  border: none;
+  background: var(--bg);
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border-right: 1px solid var(--line-2);
+  white-space: nowrap;
+}
+
+.converter-tab:last-child {
+  border-right: none;
+}
+
+.converter-tab:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.converter-tab.active {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ─── Lorem output text block ────────────────────────────────────── */
+.output-text-block {
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.lorem-para {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin: 0 0 1em;
+}
+
+.lorem-para:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .generator-controls {
+    gap: 12px;
+  }
+
+  .generator-field-wide {
+    flex: 1 1 100%;
+  }
+
+  .generator-checkboxes {
+    gap: 8px 16px;
+  }
+
+  .converter-tabs {
+    flex-wrap: wrap;
+  }
+
+  .converter-tab {
+    flex: 1 1 auto;
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .generator-number-input {
+    width: 48px !important;
+  }
+
+  .generator-step-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .pwd-code {
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .output-text-block {
+    max-height: 300px;
+  }
+}

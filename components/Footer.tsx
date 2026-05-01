@@ -1,12 +1,16 @@
 import Link from "next/link";
 
 const TOOLS_FOOTER = [
-  { slug: "password-generator",    name: "Password Generator" },
-  { slug: "qr-code-generator",     name: "QR Code Generator" },
-  { slug: "uuid-generator",        name: "UUID Generator" },
-  { slug: "color-palette-generator", name: "Color Palette Generator" },
-  { slug: "fake-data-generator",   name: "Fake Data Generator" },
-  { slug: "hash-generator",        name: "Hash Generator" },
+  { slug: "/tools/generator/password-generator", name: "Password Generator" },
+
+  { slug: "/tools/case-converter", name: "Case Converter" },
+  { slug: "/tools/word-counter", name: "Word Counter" },
+  { slug: "/tools/json-formatter", name: "JSON Formatter" },
+
+  { slug: "/tools/url-encoder", name: "URL Encoder" },
+  { slug: "/tools/url-decode", name: "URL Decoder" },
+
+  { slug: "/tools/generator/uuid-generator", name: "UUID Generator" },
 ];
 
 export function Footer() {
@@ -28,7 +32,7 @@ export function Footer() {
           <ul>
             {TOOLS_FOOTER.map((t) => (
               <li key={t.slug}>
-                <Link href={`/tools/${t.slug}`}>{t.name}</Link>
+                <Link href={`/${t.slug}`}>{t.name}</Link>
               </li>
             ))}
           </ul>
@@ -38,10 +42,9 @@ export function Footer() {
         <nav aria-label="Footer site">
           <h4>Site</h4>
           <ul>
-            <li><a href="/#tools">All tools</a></li>
+            <li><a href="/tools">All tools</a></li>
             <li><a href="/#why">Why Toolsxm</a></li>
             <li><a href="/#faq">FAQ</a></li>
-            <li><Link href="/sitemap.xml">Sitemap</Link></li>
           </ul>
         </nav>
 
@@ -49,8 +52,8 @@ export function Footer() {
         <nav aria-label="Footer legal">
           <h4>Legal</h4>
           <ul>
-            <li><Link href="/privacy">Privacy</Link></li>
-            <li><Link href="/terms">Terms</Link></li>
+            <li><Link href="/privacy-policy">Privacy</Link></li>
+            <li><Link href="/terms-of-service">Terms</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
         </nav>

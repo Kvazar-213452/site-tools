@@ -4,39 +4,15 @@ import Config from "@/lib/config";
 
 import "@/style/home.css";
 
-type Tool = {
-  slug: string;
-  name: string;
-  desc: string;
-  cat: string;
-  icon: string;
-};
-
-const TOOLS: Tool[] = [
-  { slug: "password-generator",      name: "Password Generator",      desc: "Generate strong, cryptographically secure passwords with custom length and character rules.",                   cat: "Security",  icon: "◇"   },
-  { slug: "qr-code-generator",       name: "QR Code Generator",       desc: "Create high-resolution QR codes for URLs, text, Wi-Fi, vCards, and payments — free and unlimited.",             cat: "Utility",   icon: "▦"   },
-  { slug: "uuid-generator",          name: "UUID Generator",          desc: "Generate UUID v1, v4, v7 and ULID identifiers in bulk for databases and APIs.",                                  cat: "Developer", icon: "◈"   },
-  { slug: "color-palette-generator", name: "Color Palette Generator", desc: "Build harmonious color palettes from a base hue with HEX, RGB, HSL, and OKLCH output.",                         cat: "Design",    icon: "◐"   },
-  { slug: "fake-data-generator",     name: "Fake Data Generator",     desc: "Generate realistic mock JSON, CSV, and SQL data: names, emails, addresses, phones for testing.",                 cat: "Developer", icon: "◇"   },
-  { slug: "hash-generator",          name: "Hash Generator",          desc: "Compute MD5, SHA-1, SHA-256, SHA-512, and bcrypt hashes locally in your browser.",                              cat: "Security",  icon: "⬡"   },
-  { slug: "lorem-ipsum-generator",   name: "Lorem Ipsum Generator",   desc: "Generate placeholder text by paragraphs, sentences, or words — classic or modern variants.",                    cat: "Content",   icon: "¶"   },
-  { slug: "meta-tag-generator",      name: "Meta Tag Generator",      desc: "Build SEO-ready meta tags, Open Graph, Twitter Cards, and JSON-LD schema in one click.",                        cat: "SEO",       icon: "◊"   },
-  { slug: "gradient-generator",      name: "CSS Gradient Generator",  desc: "Design linear, radial, and conic CSS gradients with live preview and copy-ready code.",                         cat: "Design",    icon: "◑"   },
-  { slug: "username-generator",      name: "Username Generator",      desc: "Invent unique, memorable usernames and handles for any platform or game.",                                       cat: "Content",   icon: "◇"   },
-  { slug: "json-generator",          name: "JSON Generator",          desc: "Generate, format, and validate JSON from schemas — perfect for API mocking.",                                    cat: "Developer", icon: "{ }" },
-  { slug: "favicon-generator",       name: "Favicon Generator",       desc: "Convert any image into a complete favicon set for all modern browsers and devices.",                             cat: "Design",    icon: "★"   },
-];
-
 const CATEGORIES = ["All", "Developer", "Design", "Security", "SEO", "Content", "Utility"];
 
 const FAQ = [
-  { q: "Are all tools on Toolsxm completely free?",  a: "Yes. Every generator on Toolsxm is 100% free, with no signup, no rate limits, and no hidden upsells." },
-  { q: "Is my data sent to a server?",               a: "No. All generation runs locally in your browser using JavaScript and the Web Crypto API. Your input never leaves your device." },
-  { q: "Can I use Toolsxm tools commercially?",      a: "Absolutely. Output from our generators (passwords, palettes, QR codes, fake data) is yours to use in any commercial project." },
-  { q: "Do you offer an API?",                       a: "Most tools are designed for the browser, but a public API for selected generators is on the roadmap." },
+  { q: "Are all tools on Toolsxm completely free?", a: "Yes. Every generator on Toolsxm is 100% free, with no signup, no rate limits, and no hidden upsells." },
+  { q: "Is my data sent to a server?", a: "No. All generation runs locally in your browser using JavaScript and the Web Crypto API. Your input never leaves your device." },
+  { q: "Can I use Toolsxm tools commercially?", a: "Absolutely. Output from our generators (passwords, palettes, QR codes, fake data) is yours to use in any commercial project." },
+  { q: "Do you offer an API?", a: "Most tools are designed for the browser, but a public API for selected generators is on the roadmap." },
 ];
 
-// JSON-LD — залишається тут, бо це page-specific structured data
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -53,13 +29,13 @@ const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Free Online Generator Tools",
-  numberOfItems: TOOLS.length,
-  itemListElement: TOOLS.map((t, i) => ({
+  numberOfItems: Config.TOOLS.length,
+  itemListElement: Config.TOOLS.map((t, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: t.name,
     description: t.desc,
-    url: `${Config.MAIN_DOMAIN_NO}/tools/${t.slug}`,
+    url: `${Config.MAIN_DOMAIN_NO}/${t.slug}`,
   })),
 };
 const faqJsonLd = {
@@ -75,7 +51,7 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",  item: Config.MAIN_DOMAIN_NO },
+    { "@type": "ListItem", position: 1, name: "Home", item: Config.MAIN_DOMAIN_NO },
     { "@type": "ListItem", position: 2, name: "Tools", item: `${Config.MAIN_DOMAIN_NO}/#tools` },
   ],
 };
@@ -112,7 +88,7 @@ export default function Home() {
         </p>
         <div className="hero-cta">
           <a href="#tools" className="btn btn-primary">Browse all tools →</a>
-          <a href="#why"   className="btn btn-ghost">Why Toolsxm</a>
+          <a href="#why" className="btn btn-ghost">Why Toolsxm</a>
         </div>
         <ul className="hero-stats" aria-label="Site statistics">
           <li><strong>12</strong><span>generators</span></li>
@@ -143,7 +119,7 @@ export default function Home() {
         </div>
 
         <ul className="tool-grid" role="list">
-          {TOOLS.map((t) => (
+          {Config.TOOLS.map((t) => (
             <li key={t.slug} className="tool-card">
               <Link href={`/tools/${t.slug}`} className="tool-link" aria-labelledby={`t-${t.slug}`}>
                 <div className="tool-top">

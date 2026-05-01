@@ -43,16 +43,9 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="nav-links" aria-label="Primary">
-          <a href="/#tools">Tools</a>
+          <a href="/tools">Tools</a>
           <a href="/#why">Why us</a>
           <a href="/#faq">FAQ</a>
-          <a
-            href="https://github.com/toolsxm"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            GitHub ↗
-          </a>
         </nav>
 
         {/* Actions */}
@@ -122,14 +115,6 @@ export function Header() {
         <a href="/#tools" onClick={() => setMenuOpen(false)}>Tools</a>
         <a href="/#why"   onClick={() => setMenuOpen(false)}>Why us</a>
         <a href="/#faq"   onClick={() => setMenuOpen(false)}>FAQ</a>
-        <a
-          href="https://github.com/toolsxm"
-          rel="noopener noreferrer"
-          target="_blank"
-          onClick={() => setMenuOpen(false)}
-        >
-          GitHub ↗
-        </a>
       </div>
     </header>
   );
