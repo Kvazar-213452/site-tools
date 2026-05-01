@@ -121,7 +121,7 @@ export default function Home() {
         <ul className="tool-grid" role="list">
           {Config.TOOLS.map((t) => (
             <li key={t.slug} className="tool-card">
-              <Link href={`/tools/${t.slug}`} className="tool-link" aria-labelledby={`t-${t.slug}`}>
+              <Link href={`${t.slug}`} className="tool-link" aria-labelledby={`t-${t.slug}`}>
                 <div className="tool-top">
                   <span className="tool-icon" aria-hidden="true">{t.icon}</span>
                   <span className="tool-cat">{t.cat}</span>

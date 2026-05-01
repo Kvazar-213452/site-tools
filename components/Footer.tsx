@@ -32,7 +32,7 @@ export function Footer() {
           <ul>
             {TOOLS_FOOTER.map((t) => (
               <li key={t.slug}>
-                <Link href={`/${t.slug}`}>{t.name}</Link>
+                <Link href={`${t.slug}`}>{t.name}</Link>
               </li>
             ))}
           </ul>
