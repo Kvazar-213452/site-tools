@@ -1,0 +1,406 @@
+/* ═════════════════════════════════════════════════════════════════ */
+/* JSON FORMATTER & URL ENCODER — Styles + Syntax Highlighting       */
+/* ═════════════════════════════════════════════════════════════════ */
+
+/* ─────────── TABS (mode toggle) ─────────── */
+.converter-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.converter-tab {
+  padding: 7px 20px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.converter-tab:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.converter-tab.active {
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+}
+
+/* ─────────── SUBTABS (encoding method) ─────────── */
+.converter-subtabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.converter-subtabs-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.converter-subtab {
+  padding: 5px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.converter-subtab:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.converter-subtab.active {
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ─────────── INPUT VARIANTS ─────────── */
+.converter-input-mono {
+  font-family: var(--mono);
+  font-size: 13px;
+  min-height: 160px;
+}
+
+.converter-input-error {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #e53e3e 12%, transparent) !important;
+}
+
+/* ─────────── INPUT CONTROLS WRAPPER ─────────── */
+.converter-input-controls {
+  position: relative;
+}
+
+.converter-input-controls .converter-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 40px;
+}
+
+.converter-clear-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--line-2);
+  color: var(--ink-3);
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+
+.converter-clear-btn:hover {
+  background: #e53e3e;
+  color: #fff;
+}
+
+/* ─────────── HELP TEXT ─────────── */
+.converter-help-text {
+  font-size: 11px;
+  color: var(--ink-3);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ─────────── ERROR BANNER ─────────── */
+.converter-error {
+  padding: 12px 16px;
+  background: color-mix(in srgb, #e53e3e 8%, var(--bg));
+  border: 1px solid color-mix(in srgb, #e53e3e 30%, transparent);
+  border-left: 3px solid #e53e3e;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #e53e3e;
+  line-height: 1.5;
+}
+
+.converter-error strong {
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* ─────────── EMPTY STATE ─────────── */
+.converter-empty-state {
+  padding: 40px 24px;
+  text-align: center;
+  border: 1px dashed var(--line-2);
+  border-radius: 6px;
+}
+
+.converter-empty-state p {
+  font-size: 14px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  margin: 0;
+}
+
+/* ─────────── FULL-WIDTH OUTPUT ─────────── */
+.converter-output-full {
+  width: 100%;
+  cursor: default;
+}
+
+.converter-output-full:hover {
+  border-color: var(--line-2);
+  background: var(--bg);
+}
+
+/* ─────────── OUTPUT HEADER (label + actions) ─────────── */
+.output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.output-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─────────── COPY / SWAP BUTTONS ─────────── */
+.converter-copy-btn,
+.converter-swap-btn {
+  padding: 5px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.converter-copy-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+
+.converter-swap-btn:hover {
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ─────────── CODE OUTPUT BLOCK ─────────── */
+.output-pre {
+  margin: 0;
+  padding: 16px;
+  background: color-mix(in srgb, var(--accent) 4%, var(--bg));
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  overflow-x: auto;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+/* Scrollbar */
+.output-pre::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.output-pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+.output-pre::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: 3px;
+}
+.output-pre::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.output-code-block {
+  display: block;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+  font-weight: 400;
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* JSON SYNTAX HIGHLIGHTING                                           */
+/* ═════════════════════════════════════════════════════════════════ */
+
+/* The output-pre holds a <code> with data-highlighted spans injected by JS */
+
+/* JSON keys  — "key": */
+.json-key     { color: var(--accent); font-weight: 600; }
+
+/* JSON string values — "value" */
+.json-string  { color: #38a169; }
+
+/* JSON numbers */
+.json-number  { color: #d69e2e; }
+
+/* JSON booleans — true / false */
+.json-boolean { color: #e53e3e; font-weight: 600; }
+
+/* JSON null */
+.json-null    { color: var(--ink-3); font-style: italic; }
+
+/* JSON punctuation — { } [ ] , : */
+.json-punct   { color: var(--ink-3); }
+
+/* ─── Dark-mode overrides ─── */
+@media (prefers-color-scheme: dark) {
+  .json-string  { color: #68d391; }
+  .json-number  { color: #f6e05e; }
+  .json-boolean { color: #fc8181; }
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* URL ENCODER — PERCENT HIGHLIGHT                                    */
+/* ═════════════════════════════════════════════════════════════════ */
+
+/* Percent-encoded sequences — %20, %3D … */
+.url-encoded  {
+  color: var(--accent);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+/* Plain (non-encoded) text in a decoded URL */
+.url-plain    { color: var(--ink); }
+
+/* Protocol segment — https:// */
+.url-protocol { color: var(--ink-3); }
+
+/* Domain segment */
+.url-host     { color: var(--ink); font-weight: 600; }
+
+/* Query-string key=value pairs */
+.url-param-key   { color: var(--accent); font-weight: 600; }
+.url-param-value { color: #38a169; }
+.url-param-sep   { color: var(--ink-3); }
+
+@media (prefers-color-scheme: dark) {
+  .url-param-value { color: #68d391; }
+}
+
+/* ─────────── STATS CARD VARIANT ─────────── */
+.stats-card {
+  /* Inherits .converter-output — just marks semantic intent */
+}
+
+/* ─────────── RESPONSIVE ─────────── */
+@media (max-width: 768px) {
+  .converter-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .converter-tab {
+    flex: 1;
+    text-align: center;
+    padding: 7px 12px;
+  }
+
+  .converter-subtabs {
+    gap: 6px;
+  }
+
+  .output-pre {
+    max-height: 320px;
+  }
+
+  .output-code-block {
+    font-size: 12px;
+  }
+
+  .converter-copy-btn,
+  .converter-swap-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .converter-tab {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .converter-subtabs {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .converter-subtab {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .output-pre {
+    padding: 12px;
+    max-height: 240px;
+  }
+
+  .output-code-block {
+    font-size: 11.5px;
+    line-height: 1.6;
+  }
+
+  .output-header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .output-actions {
+    flex-wrap: wrap;
+  }
+
+  .converter-error {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+}

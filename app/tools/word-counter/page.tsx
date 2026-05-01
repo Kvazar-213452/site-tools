@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: `${Config.NAME_MAKE}` }],
   robots: { index: true, follow: true },
-  alternates: { canonical: `${Config.MAIN_DOMEN}/word-counter` },
+  alternates: { canonical: `${Config.MAIN_DOMEN}/tools/word-counter` },
   openGraph: {
     title: `Word Counter — Count Words, Characters & Reading Time Instantly`,
     description: `Free word counter with real-time statistics: words, characters, sentences, paragraphs, reading time, and more. 100% browser-based, no signup, completely private.`,
-    url: `${Config.MAIN_DOMEN}/word-counter`,
+    url: `${Config.MAIN_DOMEN}/tools/word-counter`,
     type: "website",
     siteName: Config.SITE_NAME,
     images: [
