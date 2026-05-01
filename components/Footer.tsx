@@ -19,9 +19,9 @@ export function Footer() {
       <div className="footer-row">
         {/* Brand */}
         <div>
-          <Link href="/" className="logo logo-sm" aria-label="Toolsxm home">
+          <Link href="/" className="logo logo-sm" aria-label="besttoolsfree home">
             <span className="logo-mark" aria-hidden="true">◈</span>
-            <span className="logo-text">toolsxm</span>
+            <span className="logo-text">besttoolsfree</span>
           </Link>
           <p className="footer-tag">Free generator tools, forever.</p>
         </div>
@@ -43,7 +43,7 @@ export function Footer() {
           <h4>Site</h4>
           <ul>
             <li><a href="/tools">All tools</a></li>
-            <li><a href="/#why">Why Toolsxm</a></li>
+            <li><a href="/#why">Why besttoolsfree</a></li>
             <li><a href="/#faq">FAQ</a></li>
           </ul>
         </nav>
@@ -61,7 +61,7 @@ export function Footer() {
 
       <div className="footer-bottom">
         <span>
-          © {new Date().getFullYear()} Toolsxm. All tools free, all rights reserved.
+          © {new Date().getFullYear()} besttoolsfree. All tools free, all rights reserved.
         </span>
         <span className="footer-mono">v1.0 · made with restraint</span>
       </div>

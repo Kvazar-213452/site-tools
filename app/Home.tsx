@@ -7,9 +7,9 @@ import "@/style/home.css";
 const CATEGORIES = ["All", "Developer", "Design", "Security", "SEO", "Content", "Utility"];
 
 const FAQ = [
-  { q: "Are all tools on Toolsxm completely free?", a: "Yes. Every generator on Toolsxm is 100% free, with no signup, no rate limits, and no hidden upsells." },
+  { q: "Are all tools on Besttoolsfree completely free?", a: "Yes. Every generator on Besttoolsfree is 100% free, with no signup, no rate limits, and no hidden upsells." },
   { q: "Is my data sent to a server?", a: "No. All generation runs locally in your browser using JavaScript and the Web Crypto API. Your input never leaves your device." },
-  { q: "Can I use Toolsxm tools commercially?", a: "Absolutely. Output from our generators (passwords, palettes, QR codes, fake data) is yours to use in any commercial project." },
+  { q: "Can I use Besttoolsfree tools commercially?", a: "Absolutely. Output from our generators (passwords, palettes, QR codes, fake data) is yours to use in any commercial project." },
   { q: "Do you offer an API?", a: "Most tools are designed for the browser, but a public API for selected generators is on the roadmap." },
 ];
 
@@ -17,7 +17,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: Config.SITE_NAME,
-  alternateName: "Toolsxm — Free Online Generator Tools",
+  alternateName: "Besttoolsfree — Free Online Generator Tools",
   url: Config.MAIN_DOMAIN_NO,
   potentialAction: {
     "@type": "SearchAction",
@@ -59,7 +59,7 @@ const breadcrumbJsonLd = {
 export const metadata: Metadata = {
   title: "Free Online Generator Tools — Build, Create, Generate Anything",
   description:
-    "Toolsxm is a free collection of fast, browser-based generator tools: password generator, QR code generator, UUID generator, color palette generator, fake data generator, hash generator, lorem ipsum, meta tag generator, and more. No signup, no ads, no tracking.",
+    "Besttoolsfree is a free collection of fast, browser-based generator tools: password generator, QR code generator, UUID generator, color palette generator, fake data generator, hash generator, lorem ipsum, meta tag generator, and more. No signup, no ads, no tracking.",
   alternates: { canonical: "/" },
 };
 
@@ -88,7 +88,7 @@ export default function Home() {
         </p>
         <div className="hero-cta">
           <a href="#tools" className="btn btn-primary">Browse all tools →</a>
-          <a href="#why" className="btn btn-ghost">Why Toolsxm</a>
+          <a href="#why" className="btn btn-ghost">Why Besttoolsfree</a>
         </div>
         <ul className="hero-stats" aria-label="Site statistics">
           <li><strong>12</strong><span>generators</span></li>
@@ -137,7 +137,7 @@ export default function Home() {
         <div className="seo-copy">
           <h3>The complete suite of online generator tools</h3>
           <p>
-            Toolsxm brings together the most-used <strong>online generators</strong> developers, designers, and
+            Besttoolsfree brings together the most-used <strong>online generators</strong> developers, designers, and
             content creators rely on every day. Generate <strong>secure passwords</strong>, create{" "}
             <strong>QR codes</strong> for any URL or Wi-Fi network, mint <strong>UUIDs</strong> for your database,
             build <strong>color palettes</strong> for your next brand, produce <strong>realistic fake data</strong>{" "}

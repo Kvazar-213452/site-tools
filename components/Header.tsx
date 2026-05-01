@@ -33,11 +33,11 @@ export function Header() {
         <Link
           href="/"
           className="logo"
-          aria-label="Toolsxm home"
+          aria-label="besttoolsfree home"
           onClick={() => setMenuOpen(false)}
         >
           <span className="logo-mark" aria-hidden="true">◈</span>
-          <span className="logo-text">toolsxm</span>
+          <span className="logo-text">besttoolsfree</span>
           <span className="logo-dot" aria-hidden="true">.</span>
         </Link>
 

@@ -7,10 +7,10 @@ type Tool = {
 };
 
 export default class Config {
-    static MAIN_DOMAIN_NO: string = "https://toolsxm.com";
-    static NAME_MAKE: string = "DevTools Converter";
-    static MAIN_DOMEN: string = "https://converterdevtools.com/";
-    static SITE_NAME: string = "Toolsxm";
+    static MAIN_DOMAIN_NO: string = "https://besttoolsfree.com";
+    static NAME_MAKE: string = "Best tools free";
+    static MAIN_DOMEN: string = "https://besttoolsfree.com/";
+    static SITE_NAME: string = "Besttoolsfree";
     static GMAIL: string = "alret213452@gmail.com";
 
 
